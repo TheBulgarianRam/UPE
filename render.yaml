@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: upe-backend
+    runtime: docker
+    plan: starter            # torch needs >512MB RAM; free tier will OOM
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: UPE_SOURCE
+        value: sample/sample.mp4
+      - key: UPE_FPS
+        value: "10"
+      - key: UPE_WIDTH
+        value: "512"
